@@ -1,0 +1,10 @@
+/* 
+  MoarStrings.strings
+  
+
+  Created by Ellen Shapiro on 11/6/22.
+  
+*/
+
+"does_this_work" = "Well, that's why we have tests.";
+"o_rly" = "Oh stop being so sanctimonious.";
