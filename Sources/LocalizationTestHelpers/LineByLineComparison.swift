@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import XCTest
 
 public struct LineMismatch: Equatable, CustomStringConvertible {
     public let expected: String
@@ -66,6 +67,29 @@ public struct LineByLineComparison {
         }
         
         // If we got here, all the lines match and we have succeeded!   
+    }
+    
+    func compareForTesting(file: StaticString = #file,
+                           line: UInt = #line) {
+        do {
+            try compare()
+        } catch {
+            switch error {
+            case ComparisonError.mismatchedLineCount(let expected, let actual):
+                XCTFail("Line counts mismatched. Expected \(expected) lines, got \(actual) lines",
+                        file: file,
+                        line: line)
+            case ComparisonError.mismatchedLines(let mismatches):
+                let errorLog = mismatches.map { "\n\t- \($0.description)" }
+                XCTFail("Got \(mismatches.count) mismatched lines. Mismatches: \(errorLog)",
+                        file: file,
+                        line: line)
+            default:
+                XCTFail("Unexpected error: \(error)",
+                        file: file,
+                        line: line)
+            }
+        }
     }
     
 }
