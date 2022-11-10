@@ -11,6 +11,8 @@ let package = Package(
         .library(
             name: "LocalizedKeyGenerator",
             targets: ["LocalizedKeyGenerator"]),
+        .library(name: "LocalizationTestHelpers",
+                 targets: ["LocalizationTestHelpers"])
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -22,9 +24,15 @@ let package = Package(
         .target(
             name: "LocalizedKeyGenerator",
             dependencies: []),
+        .target(
+            name: "LocalizationTestHelpers",
+            dependencies: []),
         .testTarget(
             name: "LocalizedKeyGeneratorTests",
-            dependencies: ["LocalizedKeyGenerator"],
+            dependencies: [
+                "LocalizedKeyGenerator",
+                "LocalizationTestHelpers",
+            ],
             resources: [
                 .process("Resources")
             ]),
