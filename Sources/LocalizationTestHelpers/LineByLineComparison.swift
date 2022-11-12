@@ -40,6 +40,12 @@ public struct LineByLineComparison {
         self.expected = expected
         self.actual = actual
     }
+    
+    public init(expectedPath: String,
+                actual: String) throws {
+        self.actual = actual
+        self.expected = try String(contentsOfFile: expectedPath)
+    }
 
     public func compare() throws {
         let expectedLines = expected.split(separator: "\n",
@@ -69,8 +75,8 @@ public struct LineByLineComparison {
         // If we got here, all the lines match and we have succeeded!   
     }
     
-    func compareForTesting(file: StaticString = #file,
-                           line: UInt = #line) {
+    public func compareForTesting(file: StaticString = #file,
+                                  line: UInt = #line) {
         do {
             try compare()
         } catch {
@@ -91,5 +97,4 @@ public struct LineByLineComparison {
             }
         }
     }
-    
 }

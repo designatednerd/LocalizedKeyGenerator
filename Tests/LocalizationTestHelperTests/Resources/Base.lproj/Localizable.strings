@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  
+
+  Created by Ellen Shapiro on 11/6/22.
+  
+*/
+
+"what_is_this" = "This is a library to generate enums for your localized keys.";
+"why_use_this" = "Because spelling is hard.";
+"who_are_you" = "I'm Ellen, nice to meet you.";
+

@@ -96,6 +96,8 @@ private class ClassForBundleLocation {}
 """)
         }
         
+        fileContents.append("\n")
+        
         return fileContents
     }
     

@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  
+
+  Created by Ellen Shapiro on 11/6/22.
+  
+*/
+
+"what_is_this" = "Esta es una biblioteca para generar enumeraciones para sus claves localizadas.";
+"why_use_this" = "Porque la ortografía es difícil.";
+"who_are_you" = "Soy Ellen, encantada de conocerte.";
+
